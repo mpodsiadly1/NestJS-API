@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import {OnEvent} from '@nestjs/event-emitter';
+import { OnEvent } from '@nestjs/event-emitter';
 
 @Injectable()
 export class AppService {
@@ -7,7 +7,7 @@ export class AppService {
     return 'Hello World!';
   }
 
-  @OnEvent("product.getAllItems")
+  @OnEvent('product.getAllItems')
   handleEvent() {
     console.log('EVENT')
   }

@@ -1,16 +1,16 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import {TypeOrmModule} from '@nestjs/typeorm';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductsModule } from './products/products.module';
-import {Product} from './products/entities/product.entity';
+import { Product} from './products/entities/product.entity';
 import { CoreModule } from './core/core.module';
-import {EventEmitterModule} from '@nestjs/event-emitter';
+import { EventEmitterModule } from '@nestjs/event-emitter';
 
 @Module({
   imports: [
       EventEmitterModule.forRoot(),
-    TypeOrmModule.forRoot({
+      TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.POSTGRES_HOST,
       port: Number(process.env.POSTGRES_PORT),

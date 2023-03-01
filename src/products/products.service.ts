@@ -1,9 +1,9 @@
 import {HttpException, HttpStatus, Injectable} from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
-import {InjectRepository} from '@nestjs/typeorm';
-import {Product} from './entities/product.entity';
-import {Repository} from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Product } from './entities/product.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class ProductsService {
@@ -24,10 +24,10 @@ export class ProductsService {
 
   async findOne(id: number) {
     const product = await this.productRepository.findOneBy({id: id});
-     if (!product) {
-       throw new HttpException(`Product with id:  ${id} does not exist`, HttpStatus.BAD_REQUEST);
-     }
-     return product;
+    if (!product) {
+      throw new HttpException(`Product with id:  ${id} does not exist`, HttpStatus.BAD_REQUEST);
+    }
+    return product;
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {
